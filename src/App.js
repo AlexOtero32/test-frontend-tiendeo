@@ -1,32 +1,13 @@
 import React from 'react';
 
-import Card from './components/Card';
+import CardList from './components/CardList';
+import Header from './components/Header';
 
 function App() {
     return (
         <div className="app">
-            <div className="container grid-container">
-                <Card
-                    titulo="Esto es una tarjeta"
-                    descripcion="lorem ipsum dolor sit amet"
-                />
-                <Card
-                    titulo="Esto es una tarjeta"
-                    descripcion="lorem ipsum dolor sit amet"
-                />
-                <Card
-                    titulo="Esto es una tarjeta"
-                    descripcion="lorem ipsum dolor sit amet"
-                />
-                <Card
-                    titulo="Esto es una tarjeta"
-                    descripcion="lorem ipsum dolor sit amet"
-                />
-                <Card
-                    titulo="Esto es una tarjeta"
-                    descripcion="lorem ipsum dolor sit amet"
-                />
-            </div>
+            <Header />
+            <CardList />
         </div>
     );
 }

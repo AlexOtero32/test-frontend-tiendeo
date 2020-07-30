@@ -845,6 +845,28 @@ video {
   outline: 0;
 }
 
+.label {
+  display: block;
+  --text-opacity: 1;
+  color: #4a5568;
+  color: rgba(74, 85, 104, var(--text-opacity));
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  border-bottom-width: 1px;
+  --border-opacity: 1;
+  border-color: #38b2ac;
+  border-color: rgba(56, 178, 172, var(--border-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
