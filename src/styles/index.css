@@ -1,0 +1,60 @@
+@tailwind base;
+
+@tailwind components;
+
+.grid-container {
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    @apply m-4 justify-center grid;
+}
+
+.app {
+    @apply flex flex-col justify-center items-center;
+}
+
+.header {
+    @apply py-5 bg-gray-300 text-white w-full flex justify-center;
+}
+
+.card {
+    @apply max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-center items-center;
+}
+
+.button {
+    @apply py-2 px-4 rounded;
+}
+
+.button-blue {
+    @apply bg-blue-500 text-white;
+}
+
+.button-border {
+    @apply border border-solid border-blue-500 shadow-xl text-blue-500;
+}
+
+.button-blue:hover,
+.button-border:hover {
+    @apply bg-blue-700 text-white;
+}
+
+.dropdown {
+    @apply mt-2 py-2 w-48 bg-white rounded-lg shadow-xl fixed;
+}
+
+.dropdown-item {
+    @apply block px-4 py-2 text-gray-800 w-full;
+}
+
+.dropdown-item:hover {
+    @apply bg-indigo-500 text-white;
+}
+
+.input {
+    @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+}
+
+.input:focus {
+    @apply outline-none;
+}
+
+@tailwind utilities;
