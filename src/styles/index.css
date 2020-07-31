@@ -4,7 +4,7 @@
 
 .grid-container {
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     @apply m-4 justify-center grid;
 }
 
@@ -49,6 +49,16 @@
     @apply bg-indigo-500 text-white;
 }
 
+.overlay {
+    z-index: 3000;
+    @apply fixed flex justify-center items-center w-screen h-screen bg-gray-300 top-0 left-0 bg-opacity-50;
+}
+
+.form {
+    z-index: 3001;
+    @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
+}
+
 .input {
     @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
 }
@@ -65,4 +75,29 @@
     @apply flex flex-col border-b border-teal-500 py-2 mb-6;
 }
 
+.button-box {
+    @apply px-6 py-4 hidden;
+}
+
+.card:hover .button-box {
+    @apply block;
+}
+
+.image-box {
+    @apply relative;
+}
+
+.image-box .button-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+}
 @tailwind utilities;

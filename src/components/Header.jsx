@@ -3,13 +3,24 @@ import { connect } from 'react-redux';
 
 import Droprown from './Dropdown';
 import Modal from './Modal';
-import { useOutsideAlerter } from '../lib/helpers';
+import { useOutsideAlerter, isObjectEmpty } from '../lib/helpers';
 
 import store from '../redux/store';
 import { toggleModal as toggleModalActionCreator } from '../redux/ui';
+import { editCard, createCard } from '../redux/cards/actions';
+
+function create(values) {
+    store.dispatch(createCard(values));
+    store.dispatch(toggleModalActionCreator());
+}
+
+function edit(values) {
+    store.dispatch(editCard(values));
+    store.dispatch(toggleModalActionCreator());
+}
 
 const Header = (props) => {
-    const { isModalOpen, toggleModal } = props;
+    const { isModalOpen, toggleModal, editing, dispatch } = props;
 
     const dropdownRef = React.useRef(null);
     const modalRef = React.useRef(null);
@@ -30,12 +41,11 @@ const Header = (props) => {
                         Nueva tarjeta
                     </button>
                     {isModalOpen && (
-                        <div className="fixed flex justify-center items-center w-screen h-screen bg-gray-300 top-0 left-0 bg-opacity-50">
+                        <div className="overlay">
                             <div ref={modalRef}>
                                 <Modal
-                                    onClose={() =>
-                                        store.dispatch(toggleModal())
-                                    }
+                                    onSubmit={editing ? edit : create}
+                                    onClose={() => dispatch(toggleModal())}
                                 />
                             </div>
                         </div>
@@ -56,7 +66,10 @@ const Header = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    return { isModalOpen: state.ui.isModalOpen };
+    return {
+        isModalOpen: state.ui.isModalOpen,
+        editing: !isObjectEmpty(state.cards.editingCard),
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {

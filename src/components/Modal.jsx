@@ -1,15 +1,14 @@
 import React from 'react';
 
-import store from '../redux/store';
 import { Field, reduxForm } from 'redux-form';
-import { createCard } from '../redux/cards/actions';
-import { renderInputField, renderTextAreaField } from '../lib/helpers';
+import { clearEditingCard } from '../redux/cards/actions';
+import {
+    renderInputField,
+    renderTextAreaField,
+    isObjectEmpty,
+} from '../lib/helpers';
 import { toggleModal } from '../redux/ui';
-
-function submit(values) {
-    store.dispatch(createCard(values));
-    store.dispatch(toggleModal());
-}
+import { connect } from 'react-redux';
 
 function validate(values) {
     const errors = {};
@@ -35,11 +34,7 @@ function validate(values) {
 
 const Modal = (props) => {
     return (
-        <form
-            className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-            onSubmit={props.handleSubmit}
-            method="POST"
-        >
+        <form className="form" onSubmit={props.handleSubmit} method="POST">
             <Field
                 name="titulo"
                 component={renderInputField}
@@ -63,21 +58,33 @@ const Modal = (props) => {
                     className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
                     onClick={() => {
                         props.reset();
-                        store.dispatch(toggleModal());
+                        props.dispatch(toggleModal());
+                        props.dispatch(clearEditingCard());
                     }}
                 >
                     Cancelar
                 </button>
                 <button className="button button-blue" type="submit">
-                    Crear
+                    Guardar
                 </button>
             </div>
         </form>
     );
 };
 
-export default reduxForm({
+const ReduxFormModal = reduxForm({
     form: 'modal',
-    onSubmit: submit,
     validate,
 })(Modal);
+
+const mapStateToProps = (state) => {
+    return {
+        initialValues:
+            // Comprobar si editingCard es un objeto vacío
+            isObjectEmpty(state.cards.editingCard)
+                ? {}
+                : state.cards.editingCard,
+    };
+};
+
+export default connect(mapStateToProps)(ReduxFormModal);

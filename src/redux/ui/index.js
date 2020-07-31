@@ -9,7 +9,7 @@ export function toggleModal() {
 }
 
 export default (state = initialState, action) => {
-    if (action.type == TOGGLE_MODAL) {
+    if (action.type === TOGGLE_MODAL) {
         return { isModalOpen: !state.isModalOpen };
     }
 

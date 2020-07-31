@@ -712,7 +712,7 @@ video {
 
 .grid-container {
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   margin: 1rem;
   justify-content: center;
   display: grid;
@@ -823,6 +823,36 @@ video {
   color: rgba(255, 255, 255, var(--text-opacity));
 }
 
+.overlay {
+  z-index: 3000;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  --bg-opacity: 1;
+  background-color: #e2e8f0;
+  background-color: rgba(226, 232, 240, var(--bg-opacity));
+  top: 0;
+  left: 0;
+  --bg-opacity: 0.5;
+}
+
+.form {
+  z-index: 3001;
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
 .input {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -865,6 +895,36 @@ video {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+.button-box {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: none;
+}
+
+.card:hover .button-box {
+  display: block;
+}
+
+.image-box {
+  position: relative;
+}
+
+.image-box .button-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
 }
 
 .space-y-0 > :not(template) ~ :not(template) {

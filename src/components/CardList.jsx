@@ -10,6 +10,7 @@ const CardList = (props) => {
                 return (
                     <Card
                         key={card.id}
+                        id={card.id}
                         titulo={card.titulo}
                         descripcion={card.descripcion}
                         url={card.url}
@@ -21,7 +22,7 @@ const CardList = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-    cards: state.cards,
+    cards: state.cards.cardList,
 });
 
 export default connect(mapStateToProps, null)(CardList);
