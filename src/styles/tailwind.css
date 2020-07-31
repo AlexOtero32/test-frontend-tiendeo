@@ -920,12 +920,16 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
   font-size: 16px;
-  padding: 12px 24px;
   border: none;
-  border-radius: 5px;
+  --bg-opacity: 1;
+  background-color: #a0aec0;
+  background-color: rgba(160, 174, 192, var(--bg-opacity));
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 9999px;
 }
 
 .space-y-0 > :not(template) ~ :not(template) {

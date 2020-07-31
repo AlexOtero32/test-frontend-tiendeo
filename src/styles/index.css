@@ -3,102 +3,100 @@
 @tailwind components;
 
 .grid-container {
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    @apply m-4 justify-center grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  @apply m-4 justify-center grid;
 }
 
 .app {
-    @apply flex flex-col justify-center items-center;
+  @apply flex flex-col justify-center items-center;
 }
 
 .header {
-    @apply py-5 bg-gray-300 text-white w-full flex justify-center;
+  @apply py-5 bg-gray-300 text-white w-full flex justify-center;
 }
 
 .card {
-    @apply max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-center items-center;
+  @apply max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-center items-center;
 }
 
 .button {
-    @apply py-2 px-4 rounded;
+  @apply py-2 px-4 rounded;
 }
 
 .button-blue {
-    @apply bg-blue-500 text-white;
+  @apply bg-blue-500 text-white;
 }
 
 .button-border {
-    @apply border border-solid border-blue-500 shadow-xl text-blue-500;
+  @apply border border-solid border-blue-500 shadow-xl text-blue-500;
 }
 
 .button-blue:hover,
 .button-border:hover {
-    @apply bg-blue-700 text-white;
+  @apply bg-blue-700 text-white;
 }
 
 .dropdown {
-    z-index: 2000;
-    @apply mt-2 py-2 w-48 bg-white rounded-lg shadow-xl fixed;
+  z-index: 2000;
+  @apply mt-2 py-2 w-48 bg-white rounded-lg shadow-xl fixed;
 }
 
 .dropdown-item {
-    @apply block px-4 py-2 text-gray-800 w-full;
+  @apply block px-4 py-2 text-gray-800 w-full;
 }
 
 .dropdown-item:hover {
-    @apply bg-indigo-500 text-white;
+  @apply bg-indigo-500 text-white;
 }
 
 .overlay {
-    z-index: 3000;
-    @apply fixed flex justify-center items-center w-screen h-screen bg-gray-300 top-0 left-0 bg-opacity-50;
+  z-index: 3000;
+  @apply fixed flex justify-center items-center w-screen h-screen bg-gray-300 top-0 left-0 bg-opacity-50;
 }
 
 .form {
-    z-index: 3001;
-    @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
+  z-index: 3001;
+  @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4;
 }
 
 .input {
-    @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
+  @apply appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight;
 }
 
 .input:focus {
-    @apply outline-none;
+  @apply outline-none;
 }
 
 .label {
-    @apply block text-gray-700 text-sm font-bold mb-2;
+  @apply block text-gray-700 text-sm font-bold mb-2;
 }
 
 .form-group {
-    @apply flex flex-col border-b border-teal-500 py-2 mb-6;
+  @apply flex flex-col border-b border-teal-500 py-2 mb-6;
 }
 
 .button-box {
-    @apply px-6 py-4 hidden;
+  @apply px-6 py-4 hidden;
 }
 
 .card:hover .button-box {
-    @apply block;
+  @apply block;
 }
 
 .image-box {
-    @apply relative;
+  @apply relative;
 }
 
 .image-box .button-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 16px;
+  border: none;
+  @apply bg-gray-500 py-2 px-4 rounded-full;
 }
+
 @tailwind utilities;
