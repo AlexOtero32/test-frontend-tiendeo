@@ -1,8 +1,10 @@
-import { createStore, combineReducers } from 'redux';
-import cardsReducer from './cards/reducer';
 import { reducer as formReducer } from 'redux-form';
-import uiReducer from './ui';
+import { createStore, combineReducers } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
+
+import uiReducer from './ui';
+import cardsReducer from './cards/reducer';
+import { saveState } from '../lib/helpers';
 
 const reducer = combineReducers({
     cards: cardsReducer,
@@ -11,5 +13,7 @@ const reducer = combineReducers({
 });
 
 export const store = createStore(reducer, {}, devToolsEnhancer());
+
+store.subscribe(() => saveState({ cardList: store.getState().cards.cardList }));
 
 export default store;

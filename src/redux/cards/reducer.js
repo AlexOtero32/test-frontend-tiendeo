@@ -6,9 +6,12 @@ import {
     SET_EDITING_CARD,
     CLEAR_EDITING_CARD,
 } from './types';
+import { getStateFromLocalStorage } from '../../lib/helpers';
+
+const stateFromLocalStorage = getStateFromLocalStorage();
 
 const initialState = {
-    cardList: [],
+    cardList: stateFromLocalStorage ? stateFromLocalStorage.cardList : [],
     editingCard: {},
 };
 
