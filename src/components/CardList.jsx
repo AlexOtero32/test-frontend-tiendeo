@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Card from './Card';
 
-const CardList = () => {
+const CardList = (props) => {
+    console.log(props.cards);
+
     return (
         <main className="container grid-container">
             <Card
@@ -29,4 +32,8 @@ const CardList = () => {
     );
 };
 
-export default CardList;
+const mapStateToProps = (state) => ({
+    cards: state.cards,
+});
+
+export default connect(mapStateToProps, null)(CardList);
