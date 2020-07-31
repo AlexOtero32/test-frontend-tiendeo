@@ -4,30 +4,18 @@ import { connect } from 'react-redux';
 import Card from './Card';
 
 const CardList = (props) => {
-    console.log(props.cards);
-
     return (
         <main className="container grid-container">
-            <Card
-                titulo="Esto es una tarjeta"
-                descripcion="lorem ipsum dolor sit amet"
-            />
-            <Card
-                titulo="Esto es una tarjeta"
-                descripcion="lorem ipsum dolor sit amet"
-            />
-            <Card
-                titulo="Esto es una tarjeta"
-                descripcion="lorem ipsum dolor sit amet"
-            />
-            <Card
-                titulo="Esto es una tarjeta"
-                descripcion="lorem ipsum dolor sit amet"
-            />
-            <Card
-                titulo="Esto es una tarjeta"
-                descripcion="lorem ipsum dolor sit amet"
-            />
+            {props.cards.map((card) => {
+                return (
+                    <Card
+                        key={card.id}
+                        titulo={card.titulo}
+                        descripcion={card.descripcion}
+                        url={card.url}
+                    />
+                );
+            })}
         </main>
     );
 };

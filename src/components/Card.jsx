@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Card = ({ title, description, image }) => (
+const Card = ({ titulo, descripcion, url }) => (
     <div className="card">
         <img
             className="w-full"
-            src={image || 'https://placehold.it/400x200'}
-            alt={title}
+            src={url || 'https://placehold.it/400x200'}
+            alt={titulo}
         />
         <div className="px-6 py-4 w-full">
-            <div className="font-bold text-xl mb-2 text-gray-600">{title}</div>
-            <p className="text-gray-700 text-base">{description}</p>
+            <div className="font-bold text-xl mb-2 text-gray-600">{titulo}</div>
+            <p className="text-gray-700 text-base">{descripcion}</p>
         </div>
         <div className="px-6 py-4">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">

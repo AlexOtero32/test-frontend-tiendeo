@@ -1,12 +1,7 @@
 import { v4 as uuid } from 'uuid';
+import { CREATE_CARD, EDIT_CARD, DELETE_CARD } from './types';
 
-export const CREATE_CARD = 'create_card';
-export const EDIT_CARD = 'edit_card';
-export const DELETE_CARD = 'delete_card';
-
-const initialState = {
-    cards: [1, 2, 3],
-};
+const initialState = [];
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -17,9 +12,7 @@ export default (state = initialState, action) => {
                 fecha: new Date(),
             };
 
-            state.cards.push(card);
-
-            return state;
+            return [...state, card];
         case EDIT_CARD:
             return state;
         case DELETE_CARD:
