@@ -14,6 +14,11 @@ const reducer = combineReducers({
 
 export const store = createStore(reducer, {}, devToolsEnhancer());
 
-store.subscribe(() => saveState({ cardList: store.getState().cards.cardList }));
+store.subscribe(() =>
+    saveState({
+        cardList: store.getState().cards.cardList,
+        orderBy: store.getState().cards.orderBy,
+    })
+);
 
 export default store;

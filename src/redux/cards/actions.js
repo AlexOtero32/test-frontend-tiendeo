@@ -8,6 +8,7 @@ import {
     DELETE_CARD,
     SET_EDITING_CARD,
     CLEAR_EDITING_CARD,
+    ORDER_CARDS,
 } from './types';
 
 export function createCard(card) {
@@ -28,4 +29,8 @@ export function setEditingCard(card) {
 
 export function clearEditingCard() {
     return { type: CLEAR_EDITING_CARD };
+}
+
+export function orderBy(order) {
+    return { type: ORDER_CARDS, order };
 }

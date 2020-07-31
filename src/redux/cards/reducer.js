@@ -5,17 +5,22 @@ import {
     DELETE_CARD,
     SET_EDITING_CARD,
     CLEAR_EDITING_CARD,
+    ORDER_CARDS,
 } from './types';
-import { getStateFromLocalStorage } from '../../lib/helpers';
+import { getStateFromLocalStorage, orderCardsBy } from '../../lib/helpers';
 
 const stateFromLocalStorage = getStateFromLocalStorage();
 
 const initialState = {
     cardList: stateFromLocalStorage ? stateFromLocalStorage.cardList : [],
     editingCard: {},
+    orderBy: stateFromLocalStorage.orderBy
+        ? stateFromLocalStorage.orderBy
+        : 'newest',
 };
 
 export default (state = initialState, action) => {
+    let ordered = [];
     switch (action.type) {
         case CREATE_CARD:
             const card = {
@@ -24,9 +29,12 @@ export default (state = initialState, action) => {
                 fecha: new Date(),
             };
 
+            ordered = orderCardsBy(state.orderBy, [...state.cardList, card]);
+
             return {
-                cardList: [...state.cardList, card],
+                cardList: ordered,
                 editingCard: state.editingCard,
+                orderBy: state.orderBy,
             };
 
         case EDIT_CARD:
@@ -37,8 +45,11 @@ export default (state = initialState, action) => {
                 return card;
             });
 
+            ordered = orderCardsBy(state.orderBy, cardList);
+
             return {
-                cardList,
+                ...state,
+                cardList: ordered,
                 editingCard: {},
             };
 
@@ -51,10 +62,17 @@ export default (state = initialState, action) => {
             };
 
         case SET_EDITING_CARD:
-            return { cardList: state.cardList, editingCard: action.card };
+            return { ...state, editingCard: action.card };
 
         case CLEAR_EDITING_CARD:
-            return { cardList: state.cardList, editingCard: {} };
+            return { ...state, editingCard: {} };
+
+        case ORDER_CARDS:
+            return {
+                ...state,
+                cardList: orderCardsBy(action.order, state.cardList),
+                orderBy: action.order,
+            };
 
         default:
             return state;

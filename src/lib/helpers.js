@@ -90,3 +90,44 @@ export const getStateFromLocalStorage = () => {
         return undefined;
     }
 };
+
+export const orderCardsBy = (order, cards) => {
+    console.log(order);
+    switch (order) {
+        case 'az':
+            cards.sort((a, b) => {
+                if (a.titulo.toLowerCase() > b.titulo.toLowerCase()) {
+                    return 1;
+                }
+                if (a.titulo.toLowerCase() < b.titulo.toLowerCase()) {
+                    return -1;
+                }
+                return 0;
+            });
+
+            return [...cards];
+
+        case 'za':
+            cards.sort((a, b) => {
+                if (a.titulo.toLowerCase() > b.titulo.toLowerCase()) {
+                    return -1;
+                }
+                if (a.titulo.toLowerCase() < b.titulo.toLowerCase()) {
+                    return 1;
+                }
+                return 0;
+            });
+            return [...cards];
+
+        case 'oldest':
+            cards.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            return [...cards];
+
+        case 'newest':
+            cards.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+            return [...cards];
+
+        default:
+            return cards;
+    }
+};
