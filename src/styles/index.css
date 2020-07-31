@@ -38,6 +38,7 @@
 }
 
 .dropdown {
+    z-index: 2000;
     @apply mt-2 py-2 w-48 bg-white rounded-lg shadow-xl fixed;
 }
 

@@ -790,6 +790,7 @@ video {
 }
 
 .dropdown {
+  z-index: 2000;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
