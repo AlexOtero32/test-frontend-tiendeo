@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component Renderiza correctamente 1`] = `
+<form
+  className="form"
+  method="POST"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="label"
+    >
+      Título
+    </label>
+    <input
+      className="input"
+      name="titulo"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onDragStart={[Function]}
+      onDrop={[Function]}
+      onFocus={[Function]}
+      placeholder="Título"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="label"
+    >
+      Descripción
+    </label>
+    <textarea
+      className="input"
+      name="descripcion"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onDragStart={[Function]}
+      onDrop={[Function]}
+      onFocus={[Function]}
+      placeholder="Descripción"
+      value=""
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="label"
+    >
+      URL
+    </label>
+    <input
+      className="input"
+      name="url"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onDragStart={[Function]}
+      onDrop={[Function]}
+      onFocus={[Function]}
+      placeholder="https://ejemplo.com/imagen.png"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="flex items-center justify-between"
+  >
+    <button
+      className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+      onClick={[Function]}
+    >
+      Cancelar
+    </button>
+    <button
+      className="button button-blue"
+      type="submit"
+    >
+      Guardar
+    </button>
+  </div>
+</form>
+`;
