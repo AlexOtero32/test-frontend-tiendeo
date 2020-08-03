@@ -14,3 +14,9 @@ En caso de modificar la hoja de estilos (src/styles/index.css), se debe reconstr
 Para crear la versión de producción:
 
 ### `npm run build`
+
+Lanzar los tests:
+
+### `npm run test`
+
+**Este programa ha sido probado en Node v12.18.3 y npm v6.14.7**
