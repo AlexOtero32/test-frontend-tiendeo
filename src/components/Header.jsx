@@ -8,6 +8,7 @@ import { useOutsideAlerter, isObjectEmpty } from '../lib/helpers';
 import store from '../redux/store';
 import { toggleModal as toggleModalActionCreator } from '../redux/ui';
 import { editCard, createCard } from '../redux/cards/actions';
+import ThemeSwitcher from './ThemeSwitcher';
 
 function create(values) {
     store.dispatch(createCard(values));
@@ -51,6 +52,7 @@ const Header = (props) => {
                         </div>
                     )}
                 </div>
+                <ThemeSwitcher buttons={['light', 'dark', 'blue']} />
                 <div ref={dropdownRef}>
                     <button
                         className="button button-border"
