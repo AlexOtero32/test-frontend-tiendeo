@@ -22,9 +22,9 @@ export function switchThemeAction(theme: Themes): UIActions {
 export default (state = initialState, action: UIActions): UIState => {
   switch (action.type) {
     case ActionTypes.TOGGLE_MODAL:
-      return Object.assign(state, { isModalOpen: !state.isModalOpen });
+      return { ...state, isModalOpen: !state.isModalOpen };
     case ActionTypes.SWITCH_THEME:
-      return Object.assign(state, { activeTheme: action.theme });
+      return { ...state, activeTheme: action.theme };
     default:
       return state;
   }
